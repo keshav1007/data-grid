@@ -1,12 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { MESSAGES_EN } from './messages/en';
+import { RouterModule } from '@angular/router';
 
 describe('AppComponent', () => {
+  const messages_en = MESSAGES_EN;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterModule
       ],
       declarations: [
         AppComponent
@@ -20,16 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'data-grid'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('data-grid');
-  });
-
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, data-grid');
+    expect(compiled.querySelector('h1')?.textContent).toContain(messages_en['app.title']);
   });
 });

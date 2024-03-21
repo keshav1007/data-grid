@@ -1,0 +1,36 @@
+<div class="datagrid-wrapper" *ngIf="datagridData && datagridData.length > 0; else noData">
+<div class="actions-row">
+    <div class="select-all">
+        <input class="checkbox" id="selectAllCheckbox" type="checkbox" [(ngModel)]="selectAll" (ngModelChange)="onSelectAllChange()" />
+        <span class="selectedText">{{getSelectedMessage()}}</span>
+    </div>
+    <div class="download-button-div">
+        <button class="download-button" type="button" (click)="download()" [disabled]="!allowDownload">&#11015; {{messages_en['app.datagrid.actions.download']}}</button>
+    </div>
+</div>
+<table class="table">
+    <tr class="header-row">
+        <th></th>
+        <th>{{messages_en['app.datagrid.column.name']}}</th>
+        <th>{{messages_en['app.datagrid.column.device']}}</th>
+        <th>{{messages_en['app.datagrid.column.path']}}</th>
+        <th>{{messages_en['app.datagrid.column.status']}}</th>
+    </tr>
+    <tr class="table-row" [ngClass]="{'selected': data.checked}" *ngFor="let data of datagridData">
+        <td>
+            <input class="checkbox" type="checkbox" [(ngModel)]="data.checked" (ngModelChange)="onRowSelection()">
+        </td>
+        <td>{{data.name}}</td>
+        <td>{{data.device}}</td>
+        <td>{{data.path}}</td>
+        <td>
+            <div class="status-div"><span *ngIf="data.status === 'available'" class="status"></span>{{getDisplayValue(data.status)}}</div>
+        </td>
+    </tr>
+</table>
+</div>
+<ng-template #noData>
+    <div class="no-data-div">
+        {{messages_en['app.datagrid.no-data']}}
+    </div>
+</ng-template>

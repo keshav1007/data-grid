@@ -1,0 +1,61 @@
+:host{
+    .datagrid-wrapper{
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        .checkbox{
+            cursor: pointer;
+        }
+        .actions-row{
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 12px;
+            .selectedText{
+                padding-left: 12px;
+            }
+            border:none;
+            border-bottom: 1px solid lightgrey;
+            .download-button{
+                padding: 5px;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
+        .table{
+            width: 100%;
+            border-spacing: 0;
+            .header-row{
+                th{
+                    text-align: left;
+                }
+            }
+            th,td{
+                padding: 12px;
+                border-bottom: 1px solid lightgrey;
+            }
+            tr:hover:not(.selected){
+                td{
+                    background-color: #F5F5F5;
+                }                    
+            }
+            .selected{
+                background-color: #E8E8E8;
+            }
+            .table-row{
+                .status-div{
+                    display: flex;
+                    gap: 10px;
+                    .status{
+                        height: 15px;
+                        width: 15px;
+                        border-radius: 50%;
+                        background-color: lawngreen;
+                    }
+                }                
+            }
+        }
+    }
+    
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MESSAGES_EN } from './messages/en';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'data-grid';
+  public messages_en = MESSAGES_EN;
 }
