@@ -1,4 +1,4 @@
-# Step to run the application
+# Steps to run the application
 
 1. Git clone this repo
 2. cd into the repo
